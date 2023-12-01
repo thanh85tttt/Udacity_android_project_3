@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ConstraintSet android:id="@+id/start">
+    <Constraint
+        android:id="@id/status_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/filename_value"
+        app:layout_constraintTop_toTopOf="@+id/status_label" />
+  </ConstraintSet>
+
+  <ConstraintSet android:id="@+id/end">
+    <Constraint
+        android:id="@id/status_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/filename_value"
+        app:layout_constraintTop_toTopOf="@+id/status_label" />
+  </ConstraintSet>
+
+  <Transition
+      app:autoTransition="animateToEnd"
+      app:constraintSetEnd="@+id/end"
+      app:constraintSetStart="@+id/start"
+      app:duration="1500">
+    <KeyFrameSet>
+      <KeyAttribute
+          android:scaleX="3"
+          android:scaleY="3"
+          app:framePosition="50"
+          app:motionTarget="@id/status_value" />
+      <KeyAttribute
+          android:rotation="360"
+          app:framePosition="50"
+          app:motionTarget="@id/status_value" />
+    </KeyFrameSet>
+
+    <OnSwipe
+        app:touchAnchorId="@id/status_value"
+        app:touchAnchorSide="bottom" />
+  </Transition>
+</MotionScene>
